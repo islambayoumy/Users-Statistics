@@ -1,0 +1,21 @@
+{% extends 'stats/base.html' %}
+
+{% block title %}Main{% endblock %}
+
+
+{% block container %}
+    <form action="{% url "stats:upload" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="csv_file" class="col-md-4 control-label text-center" style="margin-top:8px" >CSV File: </label>
+            <div class="col-md-8">
+                <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+            </div>                    
+        </div>
+        <div class="form-group">                    
+            <div class="col-md-4 col-md-offset-4" style="margin-top:10px">
+                <button class="btn btn-primary" type="submit"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
+            </div> 
+        </div>
+    </form>
+{% endblock %}
