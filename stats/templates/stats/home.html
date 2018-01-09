@@ -12,6 +12,27 @@
                 <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
             </div>                    
         </div>
+
+        <div style="height:45px;width:100%"></div>
+        
+        <div class="input-group">
+            <span class="input-group-addon">Week number from</span>
+            <input type="number" name="weekNumFrom" required="required" class="form-control" value="1" min="1" max="52">
+            <span class="input-group-addon">to</span>
+            <input type="number" name="weekNumTo" required="required" class="form-control" value="52" min="1" max="52">
+  
+            <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+        
+            <select name="yearNum" class="form-control">
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+            </select>
+        </div>
+
+        <p class="text-mute text-left" style="padding-left:10px;padding-top:10px">Week calculator 
+            <a href="https://www.timeanddate.com/date/weeknumber.html" target="_blank">here</a></p>
+
         <div class="form-group">                    
             <div class="col-md-4 col-md-offset-4" style="margin-top:10px">
                 <button class="btn btn-primary" type="submit"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
