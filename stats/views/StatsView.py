@@ -1,12 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 import pandas as pd
 import matplotlib.pyplot as plt
 from dateutil import parser
-from matplotlib import pylab
-from pylab import *
-from PIL import Image
-from io import BytesIO
 
 
 def upload(request):
@@ -17,9 +12,7 @@ def upload(request):
         yearNum = request.POST.get('yearNum', '')
         
         excuteCsv(csv_file, weekNumFrom, weekNumTo, yearNum)
-        return HttpResponse("newDF")
-        #args = {'filtered_data': filtered_data}
-        #return render(request, 'stats/data.html')
+        return render(request, 'stats/data.html')
     else:
         return redirect('/stats/upload')
 
@@ -65,8 +58,22 @@ def excuteCsv(csvFile, weekNumFrom, weekNumTo, yearNum):
     df_group = dft.groupby(['week_num'])
     # get number of users
     newDF = df_group.size().reset_index(name='counts')
+    newDF = newDF.set_index('week_num')
 
     # draw chat
-    #drawPlt(newDF.week_num, newDF.counts)
+    drawPlt(newDF)
     
+
+def drawPlt(df):
+
+    fig = plt.plot(df, alpha=0.5, label='Users', color='k', linestyle="dashed", marker="o")
+
+    plt.grid(True)
+    plt.xlabel('Weeks')
+    plt.ylabel('New Users')
+    plt.title('Number of new users per week')
+    plt.legend(loc='upper right', borderpad=1)   
+    plt.savefig('stats/static/images/graph.png')
+    plt.close()
+
 

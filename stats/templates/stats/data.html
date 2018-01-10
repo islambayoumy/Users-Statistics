@@ -1,10 +1,14 @@
 {% extends 'stats/base.html' %}
+{% load staticfiles %}
 
 {% block title %}Data{% endblock %}
 
 
 {% block container %}
-    <!--{% for row in filtered_data %}
-      <p>{{ row }}</p>
-    {% endfor %}-->
+    <a href="{% static 'images/graph.png' %}" download="graph">
+      <img class="img-responsive" alt="" src="{% static 'images/graph.png' %}">
+    </a>
+    <br>
+    <p class="lead text-center">Click on image to download ..</p>
+    <a href="{% url "stats:index" %}"><< Back <<</a>
 {% endblock %}
