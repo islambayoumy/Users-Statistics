@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
+from dateutil import parser
 import pandas as pd
 import matplotlib.pyplot as plt
-from dateutil import parser
 
 
 def upload(request):
