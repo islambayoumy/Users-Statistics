@@ -27,7 +27,7 @@ Simple python statistical script using '[pandas](https://pandas.pydata.org/)' an
 ### 5. Run server
 `$(env) python manage.py runserver`
 
-* browse the application through http://127.0.0.1:8000
+* browse the application through http://127.0.0.1:8000/stats/
 
  ## Further plans
  - integrate with tools like (django-rest-pandas)[https://github.com/wq/django-rest-pandas]
