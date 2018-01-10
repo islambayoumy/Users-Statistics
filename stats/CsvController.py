@@ -64,7 +64,7 @@ class CsvController:
         plt.grid(True)
         plt.xlabel('Weeks')
         plt.ylabel('New Users')
-        plt.title('Number of new users per week')
+        plt.title('Number of new users per week for ' + self.yearNum)
         plt.legend(loc='upper right', borderpad=1)   
         plt.savefig('stats/static/images/graph.png')
         plt.close()
