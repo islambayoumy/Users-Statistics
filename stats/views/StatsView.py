@@ -28,7 +28,6 @@ def excuteCsv(csvFile, weekNumFrom, weekNumTo, yearNum):
 
     # iterate through data to update lists
     for row_index, row in df.iterrows():
-
         # parse 'created_time' column
         d = parser.parse(row['created_time'])
         d = d.date()
